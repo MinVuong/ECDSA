@@ -80,7 +80,7 @@ assign done_stage1 = done_X1_2&done_4X1&done_Y1_2&done_Y1Z1;
 //---------------------------------------------------------
   logic              stage2_start;
   logic              done_stage2;
-  logic [255:0]		M, S,T, r_Y1_4;
+  logic [255:0]		M, S,T;
   logic 					done_M, done_S, done_T, done_Z3 ;
   assign stage2_start = done_stage1;
 //3X1^2
@@ -92,7 +92,7 @@ mont_final mult20(
     .B     (r_X1_2),
     .P     (p),
     .M     (M),
-    .done  (done_3X1_2)
+    .done  (done_M)
   );
 //4*X1*Y1^2 = S
 mont_final  mult21(
